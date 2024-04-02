@@ -1,11 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SzkolenieTechniczne3.Geo.Storage.Entities;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace SzkolenieTechniczne3.Geo.Storage
 {
@@ -22,8 +24,12 @@ namespace SzkolenieTechniczne3.Geo.Storage
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            
             optionsBuilder.UseSqlServer(@"server=(localdb)\MYSSQLLocalDB;database=geo-dev;trusted_connection=true;",
-                x => x.MigrationsHistoryTable("__EFMigrationHistory", "Geo"));
+
+            //optionsBuilder.UseSqlServer(@"server = 10.200.2.28; Database = geo-dev-w65575; User Id = stud; Password =wsiz; ",
+             x => x.MigrationsHistoryTable("__EFMigrationHistory", "Geo"));
+           
 
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

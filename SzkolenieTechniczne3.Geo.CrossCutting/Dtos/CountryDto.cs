@@ -21,5 +21,7 @@ namespace SzkolenieTechniczne3.Geo.CrossCutting.Dtos
         [MinLength(2)]
         [Required]
         public string Alpha3Code { get; set; }
+
+
     }
 }

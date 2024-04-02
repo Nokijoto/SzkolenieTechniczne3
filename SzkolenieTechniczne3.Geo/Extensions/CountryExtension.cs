@@ -1,15 +1,16 @@
 ﻿using SzkolenieTechniczne3.Geo.CrossCutting.Dtos;
+using SzkolenieTechniczne3.Geo.Storage.Entities;
 
 namespace SzkolenieTechniczne3.Geo.Extensions
 {
     public static class CountryExtension
     {
-        public static CountryDto ToDto(this CountryDto entity)
+        public static CountryDto ToDto(this Country entity)
         {
             var result = new CountryDto
             {
-                Id = entity.Id,
-                Name = new Common.CrossCutting.Dtos.LocalizedString(entity.Translations.Select(t => new KeyValuePair<string, string>(t.LanguageCode, T.Name)))
+                Id = entity.ID,
+                Name = new Common.CrossCutting.Dtos.LocalizedString(entity.Translations.Select(t => new KeyValuePair<string, string>(t.LanguageCode, t.Name))),
                 Alpha3Code = entity.Alpha3Code
             };
             return result;

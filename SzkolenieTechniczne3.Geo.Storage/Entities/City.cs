@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using SzkolenieTechniczne3.Common.Storage.Entities;
+using SzkolenieTechniczne3.Common.CrossCutting.Dtos;
 
 namespace SzkolenieTechniczne3.Geo.Storage.Entities
 {
@@ -14,8 +15,8 @@ namespace SzkolenieTechniczne3.Geo.Storage.Entities
     public class City : BaseEntity
     {
         [Required]
-        public Guid CityId { get; set; }
-        public  Country Country { get; set; }
+        public Guid CountryId { get; set; }
+        public Country Country { get; set; }
         public ICollection<CityTranslation> Translations { get; set; }
     }
 }
